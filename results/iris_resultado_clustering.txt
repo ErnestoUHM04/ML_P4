@@ -1,0 +1,20 @@
+Coeficiente de silueta con 2 clusters : 0.68
+Coeficiente de silueta con 3 clusters : 0.55
+Coeficiente de silueta con 4 clusters : 0.50
+Coeficiente de silueta con 5 clusters : 0.49
+Coeficiente de silueta con 6 clusters : 0.37
+Coeficiente de silueta con 7 clusters : 0.35
+Coeficiente de silueta con 8 clusters : 0.35
+Coeficiente de silueta con 9 clusters : 0.34
+Coeficiente de silueta con 10 clusters : 0.32
+
+RESULTADO: El mejor coeficiente de silueta fue 0.68 con 2 clusters
+
+
+El mejor valor para k de acuerdo con Calinski-Harabasz es: 3 con un score de 560.40
+
+
+El mejor valor para k de acuerdo con Davies-Bouldin es: 2 con un score de 0.40
+
+
+El mejor valor para k de acuerdo con elbow es: 4

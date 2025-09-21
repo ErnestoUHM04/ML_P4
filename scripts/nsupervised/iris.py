@@ -34,6 +34,8 @@ X = iris.iloc[:, :-1]  # features
 #y = iris.iloc[:, -1]   # target.  We are not going to use it
 
 # We know there are 3 species, so we set n_clusters = 3
+# With the optimal-k.py script we found that the optimal number of clusters is 2
+# We are trying 2 also here
 kmeans = KMeans(n_clusters=3, random_state=42)
 clusters = kmeans.fit_predict(X)
 
@@ -126,4 +128,5 @@ plt.savefig("results/iris_nsupervised_regressors_comparison.png") # Save the fig
 plt.show()
 
 # Command to run the script and save the terminal output
+#python scripts/nsupervised/iris.py | tee results/iris_nsupervised_k2_terminal_output.txt
 #python scripts/nsupervised/iris.py | tee results/iris_nsupervised_terminal_output.txt

@@ -1,0 +1,16 @@
+
+Random Forest Regressor
+Mean Squared Error: 0.00016623376623376606
+R^2 Score: 0.9997792609182531
+
+K Neighbors Regressor
+Mean Squared Error: 0.022077922077922082
+R^2 Score: 0.9706830907054871
+
+Linear Regression
+Mean Squared Error: 0.3965622540625043
+R^2 Score: 0.47341151078687826
+
+MLP Regressor
+Mean Squared Error: 0.33686386067149
+R^2 Score: 0.5526840246536922

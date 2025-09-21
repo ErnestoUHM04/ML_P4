@@ -1,0 +1,24 @@
+      CRIM    ZN  INDUS  CHAS    NOX  ...    TAX  PTRATIO       B  LSTAT  MEDV
+0  0.00632  18.0   2.31     0  0.538  ...  296.0     15.3  396.90   4.98  24.0
+1  0.02731   0.0   7.07     0  0.469  ...  242.0     17.8  396.90   9.14  21.6
+2  0.02729   0.0   7.07     0  0.469  ...  242.0     17.8  392.83   4.03  34.7
+3  0.03237   0.0   2.18     0  0.458  ...  222.0     18.7  394.63   2.94  33.4
+4  0.06905   0.0   2.18     0  0.458  ...  222.0     18.7  396.90   5.33  36.2
+
+[5 rows x 14 columns]
+
+Random Forest Regressor
+Mean Squared Error: 0.016053947368421057
+R^2 Score: 0.9715821023597916
+
+K Neighbors Regressor
+Mean Squared Error: 0.01578947368421053
+R^2 Score: 0.9720502604964756
+
+Linear Regression
+Mean Squared Error: 0.2868254243792959
+R^2 Score: 0.49227592668868736
+
+MLP Regressor
+Mean Squared Error: 1.4547159272615466
+R^2 Score: -1.5750656438439141
