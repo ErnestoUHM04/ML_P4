@@ -27,8 +27,8 @@ class Logger(object):
         #self.log = open("results/iris_resultado_clustering.txt", "w", encoding="utf-8")
         #self.log = open("results/diabetes_resultado_clustering.txt", "w", encoding="utf-8")
         #self.log = open("results/wine_resultado_clustering.txt", "w", encoding="utf-8")
-        self.log = open("results/cars_resultado_clustering.txt", "w", encoding="utf-8")
-
+        #self.log = open("results/cars_resultado_clustering.txt", "w", encoding="utf-8")
+        self.log = open("results/concrete_resultado_clustering.txt", "w", encoding="utf-8")
 
     def write(self, message):
         self.terminal.write(message)
@@ -52,21 +52,24 @@ sys.stdout = Logger()
 #white['type'] = 'white'
 
 #dataframe = pd.concat([red, white], ignore_index = True)
-dataframe = pd.read_csv("data/cars/car_prediction_data.csv")
+#dataframe = pd.read_csv("data/cars/car_prediction_data.csv")
+dataframe = pd.read_excel("data/concrete+compressive+strength/Concrete_Data.xls")
 
 # Encode type as numbers
 #le = LabelEncoder()
 #dataframe['type'] = le.fit_transform(dataframe['type'])
 le = LabelEncoder()
-dataframe['Car_Name'] = le.fit_transform(dataframe['Car_Name'])
-dataframe['Fuel_Type'] = le.fit_transform(dataframe['Fuel_Type'])
-dataframe['Seller_Type'] = le.fit_transform(dataframe['Seller_Type'])
-dataframe['Transmission'] = le.fit_transform(dataframe['Transmission'])
+#dataframe['Car_Name'] = le.fit_transform(dataframe['Car_Name'])
+#dataframe['Fuel_Type'] = le.fit_transform(dataframe['Fuel_Type'])
+#dataframe['Seller_Type'] = le.fit_transform(dataframe['Seller_Type'])
+#dataframe['Transmission'] = le.fit_transform(dataframe['Transmission'])
 
 
 #dataframe.columns = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 #dataframe = pd.read_csv('data/boston/housing.csv', header = None, delimiter = r"\s+")
 #dataframe.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
+dataframe.columns = ['cement', 'blast_furnance_slag', 'fly_ash', 'water', 'superplasticizer', 'coarse_aggregate', 'fine_aggregate', 'age', 'concrete_compressive_strength']
+
 # prueba
 # encoding = 'utf-8'
 # encoding = 'latin1'
@@ -80,8 +83,8 @@ dataframe['Transmission'] = le.fit_transform(dataframe['Transmission'])
 #X = dataframe.iloc[:, :-1]  # features
 #X = dataframe[["fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","type"]]  # exclude the quality
 
-X = dataframe[['Car_Name','Year','Selling_Price','Kms_Driven','Fuel_Type','Seller_Type','Transmission','Owner']]
-
+#X = dataframe[['Car_Name','Year','Selling_Price','Kms_Driven','Fuel_Type','Seller_Type','Transmission','Owner']]
+X = dataframe.iloc[:, :-1]
 # Silueta
 
 best_sil = 0

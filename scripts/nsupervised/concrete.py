@@ -16,11 +16,19 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.neural_network import MLPRegressor
 
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+
+from sklearn.cluster import KMeans # For K-Means clustering
+
 # Concrete Compressive Dataset
-concrete = pd.read_excel("../data/concrete+compressive+strength/Concrete_Data.xls")
+concrete = pd.read_excel("data/concrete+compressive+strength/Concrete_Data.xls")
 # despite the dataset having header, is super large, so we will reduce it a little bit
 concrete.columns = ['cement', 'blast_furnance_slag', 'fly_ash', 'water', 'superplasticizer', 'coarse_aggregate', 'fine_aggregate', 'age', 'concrete_compressive_strength']
-#concrete.head()
+print(concrete.head())
+
+# for this we are going k = 10 and k =5
+
 
 ###################################################################################################
 #                   Random Forest Regressor

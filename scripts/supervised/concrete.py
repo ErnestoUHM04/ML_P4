@@ -17,7 +17,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.neural_network import MLPRegressor
 
 # Concrete Compressive Dataset
-concrete = pd.read_excel("../data/concrete+compressive+strength/Concrete_Data.xls")
+concrete = pd.read_excel("data/concrete+compressive+strength/Concrete_Data.xls")
 # despite the dataset having header, is super large, so we will reduce it a little bit
 concrete.columns = ['cement', 'blast_furnance_slag', 'fly_ash', 'water', 'superplasticizer', 'coarse_aggregate', 'fine_aggregate', 'age', 'concrete_compressive_strength']
 #concrete.head()
