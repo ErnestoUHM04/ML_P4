@@ -1,0 +1,24 @@
+  Car_Name  Year  Selling_Price  ...  Seller_Type  Transmission Owner
+0     ritz  2014           3.35  ...       Dealer        Manual     0
+1      sx4  2013           4.75  ...       Dealer        Manual     0
+2     ciaz  2017           7.25  ...       Dealer        Manual     0
+3  wagon r  2011           2.85  ...       Dealer        Manual     0
+4    swift  2014           4.60  ...       Dealer        Manual     0
+
+[5 rows x 9 columns]
+
+Random Forest Regressor
+Mean Squared Error: 0.00010329670329670329
+R^2 Score: 0.9951943820224719
+
+K Neighbors Regressor
+Mean Squared Error: 0.002197802197802198
+R^2 Score: 0.8977528089887641
+
+Linear Regression
+Mean Squared Error: 0.014280988260681877
+R^2 Score: 0.335613124793783
+
+MLP Regressor
+Mean Squared Error: 47251.04452977919
+R^2 Score: -2198234.391860121

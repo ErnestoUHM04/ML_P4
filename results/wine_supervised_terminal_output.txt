@@ -1,0 +1,24 @@
+   fixed acidity  volatile acidity  citric acid  ...  alcohol  quality  type
+0            7.4              0.70         0.00  ...      9.4        5     0
+1            7.8              0.88         0.00  ...      9.8        5     0
+2            7.8              0.76         0.04  ...      9.8        5     0
+3           11.2              0.28         0.56  ...      9.8        6     0
+4            7.4              0.70         0.00  ...      9.4        5     0
+
+[5 rows x 13 columns]
+
+Random Forest Regressor
+Mean Squared Error: 0.36579164102564105
+R^2 Score: 0.4986683101119642
+
+K Neighbors Regressor
+Mean Squared Error: 0.6415384615384615
+R^2 Score: 0.12074655355860753
+
+Linear Regression
+Mean Squared Error: 0.5276383278265169
+R^2 Score: 0.2768511226848325
+
+MLP Regressor
+Mean Squared Error: 0.5254193270512458
+R^2 Score: 0.2798923496669754

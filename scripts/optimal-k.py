@@ -14,6 +14,8 @@ from sklearn.metrics import davies_bouldin_score, calinski_harabasz_score
 import sys
 import os
 
+from sklearn.preprocessing import LabelEncoder
+
 print("Current working directory:", os.getcwd())
 
 
@@ -23,8 +25,9 @@ class Logger(object):
         self.terminal = sys.__stdout__
         #self.log = open("results/boston_resultado_clustering.txt", "w", encoding="utf-8")
         #self.log = open("results/iris_resultado_clustering.txt", "w", encoding="utf-8")
-        self.log = open("results/diabetes_resultado_clustering.txt", "w", encoding="utf-8")
-
+        #self.log = open("results/diabetes_resultado_clustering.txt", "w", encoding="utf-8")
+        #self.log = open("results/wine_resultado_clustering.txt", "w", encoding="utf-8")
+        self.log = open("results/cars_resultado_clustering.txt", "w", encoding="utf-8")
 
 
     def write(self, message):
@@ -40,7 +43,27 @@ sys.stdout = Logger()
 #dataframe = pd.read_csv('Mall_Customers.csv')
 #dataframe = pd.read_csv('Clusters_spi_global_rankings.csv', encoding = 'iso-8859-1')
 #dataframe = pd.read_csv('data/iris/iris.data', header = None)
-dataframe = pd.read_csv('data/diabetes/diabetes.csv')
+#dataframe = pd.read_csv('data/diabetes/diabetes.csv')
+#red = pd.read_csv("data/wine+quality/winequality-red.csv", sep = ';')
+#red.head()
+#white = pd.read_csv("data/wine+quality/winequality-white.csv", sep = ';')
+#white.head()
+#red['type'] = 'red'
+#white['type'] = 'white'
+
+#dataframe = pd.concat([red, white], ignore_index = True)
+dataframe = pd.read_csv("data/cars/car_prediction_data.csv")
+
+# Encode type as numbers
+#le = LabelEncoder()
+#dataframe['type'] = le.fit_transform(dataframe['type'])
+le = LabelEncoder()
+dataframe['Car_Name'] = le.fit_transform(dataframe['Car_Name'])
+dataframe['Fuel_Type'] = le.fit_transform(dataframe['Fuel_Type'])
+dataframe['Seller_Type'] = le.fit_transform(dataframe['Seller_Type'])
+dataframe['Transmission'] = le.fit_transform(dataframe['Transmission'])
+
+
 #dataframe.columns = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 #dataframe = pd.read_csv('data/boston/housing.csv', header = None, delimiter = r"\s+")
 #dataframe.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
@@ -49,12 +72,15 @@ dataframe = pd.read_csv('data/diabetes/diabetes.csv')
 # encoding = 'latin1'
 # encoding = 'iso-8859-1'
 # encoding = 'cp1252'
-
+#dataframe.columns = ["fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","quality","type"]
 #Obtiene las caracteristicas de interés
 #X = dataframe[['Age','Annual Income (k$)','Spending Score (1-100)']]
 #X = dataframe[['name','league','off', 'def']]
 #X = dataframe[['off', 'def']]
-X = dataframe.iloc[:, :-1]  # features
+#X = dataframe.iloc[:, :-1]  # features
+#X = dataframe[["fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol","type"]]  # exclude the quality
+
+X = dataframe[['Car_Name','Year','Selling_Price','Kms_Driven','Fuel_Type','Seller_Type','Transmission','Owner']]
 
 # Silueta
 
