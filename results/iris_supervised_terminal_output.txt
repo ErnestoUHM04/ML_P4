@@ -1,0 +1,22 @@
+   sepal_length  sepal_width  petal_length  petal_width      species
+0           5.1          3.5           1.4          0.2  Iris-setosa
+1           4.9          3.0           1.4          0.2  Iris-setosa
+2           4.7          3.2           1.3          0.2  Iris-setosa
+3           4.6          3.1           1.5          0.2  Iris-setosa
+4           5.0          3.6           1.4          0.2  Iris-setosa
+
+Random Forest Regressor
+Mean Squared Error: 0.0005311111111111121
+R^2 Score: 0.9992339743589743
+
+K Neighbors Regressor
+Mean Squared Error: 0.011555555555555552
+R^2 Score: 0.9833333333333334
+
+Linear Regression
+Mean Squared Error: 0.038792063447133124
+R^2 Score: 0.9440499084897118
+
+MLP Regressor
+Mean Squared Error: 0.40694232258865903
+R^2 Score: 0.41306395780481864

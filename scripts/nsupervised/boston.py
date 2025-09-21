@@ -20,7 +20,7 @@ from sklearn.neural_network import MLPRegressor
 boston = pd.read_csv("../data/boston/housing.csv", header = None, delimiter = r"\s+")
 boston.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
 # the meaning of this columns is going to be explained in the report document
-#boston.head() 
+#boston.head()
 
 ###################################################################################################
 #                   Random Forest Regressor
