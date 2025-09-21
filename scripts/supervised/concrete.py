@@ -16,18 +16,104 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.neural_network import MLPRegressor
 
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+
 # Concrete Compressive Dataset
 concrete = pd.read_excel("data/concrete+compressive+strength/Concrete_Data.xls")
 # despite the dataset having header, is super large, so we will reduce it a little bit
 concrete.columns = ['cement', 'blast_furnance_slag', 'fly_ash', 'water', 'superplasticizer', 'coarse_aggregate', 'fine_aggregate', 'age', 'concrete_compressive_strength']
-#concrete.head()
+print(concrete.head())
+
+X = concrete.iloc[:, :-1]
+y = concrete.iloc[:, -1]
+
+# this is a 70 - 30 split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+plt.figure(figsize=(12, 8))
 
 ###################################################################################################
 #                   Random Forest Regressor
+RandomForestRegressorModel = RandomForestRegressor() # choose the regressor
+RandomForestRegressorModel.fit(X_train, y_train) # train the model
+y_pred_rf = RandomForestRegressorModel.predict(X_test) # predict
+
+# Evaluate the model
+print("\nRandom Forest Regressor")
+print("Mean Squared Error:", mean_squared_error(y_test, y_pred_rf))
+print("R^2 Score:", r2_score(y_test, y_pred_rf))
+
+# Plot the results
+plt.subplot(2, 2, 1)
+plt.scatter(y_test, y_pred_rf, alpha=0.7)
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--') # 45 degree line to visualize performance
+plt.xlabel("True Values")
+plt.ylabel("Predictions")
+plt.title("Random Forest")
+
 ###################################################################################################
 #                   K Neighbors Regressor
+KNeighborsRegressorModel = KNeighborsRegressor() # choose the regressor
+KNeighborsRegressorModel.fit(X_train, y_train) # train the model
+y_pred_knn = KNeighborsRegressorModel.predict(X_test) # predict
+
+# Evaluate the model
+print("\nK Neighbors Regressor")
+print("Mean Squared Error:", mean_squared_error(y_test, y_pred_knn))
+print("R^2 Score:", r2_score(y_test, y_pred_knn))
+
+# Plot the results
+plt.subplot(2, 2, 2)
+plt.scatter(y_test, y_pred_knn, alpha=0.7)
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--') # 45 degree line to visualize performance
+plt.xlabel("True Values")
+plt.ylabel("Predictions")
+plt.title("KNeighbors")
+
 ###################################################################################################
 #                   Linear Regression
+LinearRegressionModel = LinearRegression() # choose the regressor
+LinearRegressionModel.fit(X_train, y_train) # train the model
+y_pred_lr = LinearRegressionModel.predict(X_test) # predict
+
+# Evaluate the model
+print("\nLinear Regression")
+print("Mean Squared Error:", mean_squared_error(y_test, y_pred_lr))
+print("R^2 Score:", r2_score(y_test, y_pred_lr))
+
+# Plot the results
+plt.subplot(2, 2, 3)
+plt.scatter(y_test, y_pred_lr, alpha=0.7)
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--') # 45 degree line to visualize performance
+plt.xlabel("True Values")
+plt.ylabel("Predictions")
+plt.title("Linear Regression")
+
 ###################################################################################################
 #                   MLP Regressor
+MLPRegressorModel = MLPRegressor()
+MLPRegressorModel.fit(X_train, y_train)
+y_pred_mlp = MLPRegressorModel.predict(X_test)
+
+# Evaluate the model
+print("\nMLP Regressor")
+print("Mean Squared Error:", mean_squared_error(y_test, y_pred_mlp))
+print("R^2 Score:", r2_score(y_test, y_pred_mlp))
+
+# Plot the results
+plt.subplot(2, 2, 4)
+plt.scatter(y_test, y_pred_mlp, alpha=0.7)
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--') # 45 degree line to visualize performance
+plt.xlabel("True Values")
+plt.ylabel("Predictions")
+plt.title("MLP Regressor")
+
 ###################################################################################################
+
+plt.tight_layout()
+plt.savefig("results/concrete_supervised_regressors_comparison.png") # Save the figure
+plt.show()
+
+# Command to run the script and save the terminal output
+#python scripts/supervised/concrete.py | tee results/concrete_supervised_terminal_output.txt

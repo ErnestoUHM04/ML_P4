@@ -1,0 +1,24 @@
+   cement  blast_furnance_slag  ...  age  concrete_compressive_strength
+0   540.0                  0.0  ...   28                      79.986111
+1   540.0                  0.0  ...   28                      61.887366
+2   332.5                142.5  ...  270                      40.269535
+3   332.5                142.5  ...  365                      41.052780
+4   198.6                132.4  ...  360                      44.296075
+
+[5 rows x 9 columns]
+
+Random Forest Regressor
+Mean Squared Error: 31.70537745182917
+R^2 Score: 0.8828235645823982
+
+K Neighbors Regressor
+Mean Squared Error: 87.33258948757653
+R^2 Score: 0.6772370381809615
+
+Linear Regression
+Mean Squared Error: 109.75614063734943
+R^2 Score: 0.5943642890037374
+
+MLP Regressor
+Mean Squared Error: 48.20148589589677
+R^2 Score: 0.8218574023383173
